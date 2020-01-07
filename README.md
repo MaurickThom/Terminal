@@ -70,4 +70,7 @@ Son punteros a otros directorios donde el . es el directorio actual y el .. es e
     luego se le dice que imprima la primera columna del archivo<br>
     `awk -F ';' 'NR > 1 && $3 > 0 { print $1 , $3 * $4 }'` NR : number row , lo que dice este script es que me imprima la columna 1 y el<br>
     producto de la columna 3 y 4 siempre y cuando el numero de lineas sea mayor que 1 y los valores de la columna tres sea mayor que cero
-    
+
+## **Recursos**
+
+- [sed](https://likegeeks.com/es/sed-de-linux/)
