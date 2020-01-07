@@ -76,12 +76,17 @@ Son punteros a otros directorios donde el . es el directorio actual y el .. es e
 - Operadores importantes
   - | pipe
     - comando_1 | comando_2 : Manda el STDOUT del comando 1 al STDIN de comando_2
+    - `cat dump.sql | wc -l`
   - >
     - comando_1 > archivo : Manda el STDOUT del comando_1 al inicio del archivo. Si el archivo no existe lo crea y si existe lo sobreescribe
   - >>
     - comando_1 >> archivo : Es igual al anterior con la diferencia que este concatena no sobreescribe
   - <
     - comando_1 < archivo : Manda el contenido del archivo como STDIN al comando
+    - ejmplos : imaginemos que tengo un script sql dump.sql con el codigo de la creacion de una tabla o una base de datos
+    o un backup cualquiera , entonces el problema es el poder ejecutar este script en mi base de datos o reestaurar el backup
+    asi que de forma automatica lo podria hacer recurriendo al siguiente comando `conexion a la base de datos < dump.sql`
+    `mysql -h 127.0.0.1 -u root -pcontra < dump.sql` en mi caso como uso docker primero levanto mi instancia y luego hago lo mismo que antes
 
 ## **Recursos**
 
