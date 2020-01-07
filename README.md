@@ -53,7 +53,7 @@ Son punteros a otros directorios donde el . es el directorio actual y el .. es e
   - `ls -R` muestra el contenido de todos los subdirectorios de forma recursiva
   - `ls -S` ordena los resultados por tamaño de archivo
   - `ls -F` agrega a cada nombre de directorio un / y tras cada nombre de ejecutable un /*
-  - combinaciones de opciones `ls  -lhSr *.json` lo que hara es listar mostrando toda la informacion 
+  - combinaciones de opciones `ls  -lhSr *.json` lo que hara es listar mostrando toda la informacion<br>
     y ademas el tamaño del archivo y lo ordena por los mismo de forma revertida siempre y cuando terminen en .json
 - Batch
   - `cat texto.txt` muestra el contenido
@@ -62,7 +62,12 @@ Son punteros a otros directorios donde el . es el directorio actual y el .. es e
 - Batch Avanzadas
   - grep : Busqueda por expresiones regulares `grep expresion archivo` `-i` ignore case `grep -i expresion archivo`
   - sed (stream editor) : Tratamiento de flujo de caracteres
-    - `sed 's/thom/maurick/g archivo` lo que hará es reemplazar thom -> maurick de forma global en todo el archivo
+    - `sed 's/thom/maurick/g archivo` lo que hará es reemplazar thom -> maurick de forma global en todo el archivo<br>
     pero no modificará el archivo solo lo reemplazará en el momento de mostrar
     - `sed '$d' archivo` lo que hara es eliminar la ultima linea creando otro Stream pero no modificara el actual
-    - Awk tratamiendo de texto delimitado
+    - awk tratamiendo de texto delimitado, sirve muy bien para trabajar con textos estructurados como por ejemplo<br>
+    los archivos separados por comas(cvs) o por tabs `awk -F ';' '{ print $1 }' archivo` ese -F dira el delimitador que en este caso es ';'
+    luego se le dice que imprima la primera columna del archivo<br>
+    `awk -F ';' 'NR > 1 && $3 > 0 { print $1 , $3 * $4 }'` NR : number row , lo que dice este script es que me imprima la columna 1 y el<br>
+    producto de la columna 3 y 4 siempre y cuando el numero de lineas sea mayor que 1 y los valores de la columna tres sea mayor que cero
+    
