@@ -88,6 +88,29 @@ Son punteros a otros directorios donde el . es el directorio actual y el .. es e
     asi que de forma automatica lo podria hacer recurriendo al siguiente comando `conexion a la base de datos < dump.sql`
     `mysql -h 127.0.0.1 -u root -pcontra < dump.sql` en mi caso como uso docker primero levanto mi instancia y luego hago lo mismo que antes
 
+Cuando ejecutamos un comando lo que se hace es lanzar un proceso nuevo, hay ocuaciones en las que no podemos hacer nada hasta que el proceso
+termine de ejecutarse a eso se le conoce como ejecucion en primer plano, para tener otra alternativa a este caso es usar el operador '&'
+
+`mysql -h 127.0.0.1 -u root -p123 < dump.sl &` imaginemos que el dump tiene millones de lineas de codigo entonces sin el `&` tendria que esperar
+hasta tener devuelta el control y con el & podemos enviar el proceso al background y continuar con mis tareas
+
+Ahora otro caso es en el que el proceso en brackground este ejecutandose constantemente por ejemplo la ejecucion de un servidor a estos procesos
+se les conoce como demons del sistema operativo
+
+Se puede mandar el proceso al background con `CTRL + Z` (en ubuntu) y para traerlo al foreground (primer plano) con `fg`
+
+## **Herramientas para ver los procesos del background**
+
+- ps : los procesos que ejecuto el usuario en mi caso sony
+  - ps ax : procesos del sistema
+  - ps ax | grep init : este comando mostrara todos los procesos que contenga como nombre init
+- top : muestra en tiempo real como los procesos van cambiando
+- jobs : lista los procesos que nosotros hemos enviado al background con un indice que podremos utilizar despues
+  en fg o kill , para indicar sobre a cual aplicarlo se utiliza el operador '%' . `kill -%indice 9` -> `kill -2 -9`
+- kill : funciona enviando señales a los procesos para que se detengan
+  - kill -9 id : -9 es el tipo de señal que le dice que tiene que acabar de una ves
+- killall : hace lo mismo que el anterior pero en este caso no se le pasa el id sino el nombre del ejecutable
+
 ## **Recursos**
 
 - [sed](https://likegeeks.com/es/sed-de-linux/)
