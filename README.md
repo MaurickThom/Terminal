@@ -227,6 +227,34 @@ Otra forma de hacerlo
     en este caso `{}` significara el nombre del archivo encontrado y hara un copia hacia `./backup/`
   - `find / -name "virus.sh" -exec rm {} \;`
 
+## **Interacción via HTTP**
+
+**Comandos HTTP :**
+
+- curl : se utiliza para hacer pedidor crudos, es decir se manda un request al servidor el servidor te da un response y eso es lo que se
+  refleja en la pantalla
+  - `curl https://platzi.com`
+  - `curl -v https://platzi.com` `v` ver el verbo http y demas detalles del response
+  - para ver los headers HTTP `curl -v https://platzi.com > /dev/null`
+- wget : realiza descargas
+  - wget https://php.net/distributions/php-7.4.1.tar.bz2
+
+## **Comandos de acceso remoto**
+
+`ssh usuario@host`
+
+`echo "probando" | mail -s "Probando para thom" thomtwd@gmail.com`
+-s : Asunto, Subject
+
+**Variables de entorno :**
+
+- `/bin/echo "hola mundo` -> `echo "hola mundo"`
+- $PATH estarán todas las rutas de las variables de entorno en la que la terminal ira a buscar para poder ejecutarlas
+
+Una variable de entorno es la definición global en la que todos los procesos tiene acceso
+`export THOM = thom`
+`echo $THOM`
+
 ## **Recursos**
 
 - [sed](https://likegeeks.com/es/sed-de-linux/)
