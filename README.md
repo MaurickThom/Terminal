@@ -118,13 +118,17 @@ Unix es un sistema multiusuario, todos los archivos de unix tienen un dueño aso
 
 `ls -l` en la primera columna se obtendra como un hash con simbolos que tiene un significado
 
-- `-` Archivo regular, permiso negado
+En el primer digito
+
+- `-` Archivo regular, sin permiso
 - `d` directorio
 - `b` archivo especial como dispositivo de bloque
 - `c` archivo de caracter especial
 - `l` enlace simbólico
 - `p` tubería nombrada (FIFO)
 - `s` zócalo de dominio (socket)
+
+Estos son los 9 caracteres restantes
 
 > Permisos son una matriz  de  : dueño,grupo,otros X lectura,escritura,ejecucion<br>
 > los tres primeros son de dueño , grupo , otros
@@ -142,10 +146,23 @@ Valor | Permiso | descripcion
 
 Para alterar los permisos asociados
 
-- `chmod`
-- `chown`
-- `chgrp`
+- `chown` : cambia el propetario del archivo (dueño)
+- `chgrp` : cambia el grupo de usuarios que tiene acceso al archivo (grupo)
+- `chmod` : nos cambia el modo del archivo , es decir cambiar indivialmente los permisos (otros)
+  - `chmod o-w nuevo.txt` o : others es decir cualquier otro usuario, - : quitar un permiso , w : y quito el de escritura
+  - `chmod +x hello.php` todos pueden ejecutar el archivo
+
+Lo visto anteriormente es la notación textual , acontinuación se usuara el manejo de permisos en notación binaria
+
+**r** | **w** | **x** | .
+-- | -- | -- | --
+1 | 0 | 0 | **4**
+1 | 1 | 0 | **6**
+1 | 1 | 1 | **7**
+
+![text](https://danielmiessler.com/images/permissions.png)
 
 ## **Recursos**
 
 - [sed](https://likegeeks.com/es/sed-de-linux/)
+- [permissions](https://danielmiessler.com/study/unixlinux_permissions/)
