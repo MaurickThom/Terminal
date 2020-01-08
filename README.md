@@ -170,8 +170,65 @@ Lo visto anteriormente es la notación textual , acontinuación se usuara el man
  - 7 (dueño) 1 1 1 lectura(r),escritura(w),ejecucion(x)
  - 6 (grupos) 1 1 0 lectura(r),escritura(w),ejecucion(no puede)
  - 5 (otros) 1 0 1 lectura(r),escritura(no puede),ejecucion(x)
+  
+## **Sistemaa de manejo de paquetes**
+
+- Paquetes binarios
+  - apt `sudo apt install lynx` -> `lynx platzi.com` 
+  - zypper
+  - rpm
+
+## **Paquetes de lenguajes**
+
+- pip (gestor de paquetes en python) `sudo pip3 install pandas`
+- composer (gestor de paquetes en php)
+- npm (gestor de paquetes en node)
+
+**Otros**
+
+- Conda
+- Homebrew
+
+## **Compresion de archivos**
+
+- gzip : `gzip archivo.txt` -> crea archivo.txt.gz
+  - descomprimir : `gzip -d archivo.txt.gz`
+  
+## **Combinación de archivos**
+
+Enviar muchos archivos a un mismo destinatario, agrupa archivos en uno solo
+
+`tar cf backup.tar backup/*` cf : create file luego lo nombra bakcup.tar y añade todo lo que este en backup/ (backup/*)
+Para poder ver el contenido que hemos empaquetado usamos `tar tf backup.tar`
+Para empaquetar y ver el contenido empaquetado al mismo tiempo usamos `tar -cvf paquete.tar ruta/`
+Para desempaquetar `tar xf backup.tar`
+
+El empaquetar nos ayudara para el transporte masivo de informacion pero esto será super pesado así que se puede empaquetar y luego comprimir
+`tar czf empaquetado_comprimido.tar.gz ruta/`
+y para descomprimir el empaquetado `tar xzf empaquetado_comprimido.tar.gz`
+
+Otra forma de hacerlo
+
+`tar czf backup.tgz backup/*`
+`tar xzf backup.tgz`
+
+## **Herramientas de búsqueda de archivos**
+
+- locate : hacer un busqueda en todo el sistema de archivos simplemente diciendole el archivo a buscar
+  - `locate hello.php` en un comienzo no encontrará ese archivo aunque si lo tengamos lo que sucede es que locate funciona
+    con una base de datos que tiene que ser actualizada explicitamente periodicamente o cada ver que se quiera usar este tipo de comando
+    `sudo updatedb && locate hello.php`
+- whereis : se utiliza para ubicar archivos binarios (comandos) `whereis echo` o `whereis jq` o `whereis sudo`
+- find : busca dentro de un arbol de directorio, es decir de donde nosotros le decimos que comienze utilizando una serie de criterios
+  - `find . -user sony -perm 777` : lo que le decimos es que busque en el directorio actual `.` con el usuario sony y que tenga los permisos 777
+  - `find . -user sony` los archivos que le pertenecen a sony en el directorio actual `.`
+  - `find . -type f -mtime +7 -exec cp {} ./backup/ \;` -> `-type f`: que solo busque files (archivos) `-mtime +7` que busque solo archivos que
+    hayan sido modificado en un intervalo de tiempo de hace mas de 7 dias luego `-exec cp {} ./backup/ \;` esto significa que ejecute un comando
+    en este caso `{}` significara el nombre del archivo encontrado y hara un copia hacia `./backup/`
+  - `find / -name "virus.sh" -exec rm {} \;`
 
 ## **Recursos**
 
 - [sed](https://likegeeks.com/es/sed-de-linux/)
 - [permissions](https://danielmiessler.com/study/unixlinux_permissions/)
+- [find](http://www.webtutoriales.com/articulos/buscar-archivos-en-linux)
