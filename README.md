@@ -162,6 +162,11 @@ Lo visto anteriormente es la notación textual , acontinuación se usuara el man
 
 ![text](https://danielmiessler.com/images/permissions.png)
 
+- `chmod 765 img/`
+ - 7 (dueño) 1 1 1 lectura(r),escritura(w),ejecucion(x)
+ - 6 (grupos) 1 1 0 lectura(r),escritura(w),nada(-)
+ - 5 (otros) 1 0 1 lectura(r),nada(-),ejecucion(x)
+
 ## **Recursos**
 
 - [sed](https://likegeeks.com/es/sed-de-linux/)
