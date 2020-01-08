@@ -22,3 +22,11 @@ Si quiero agregar alguna variable de entorno
     > source .bashrc
 
 ````
+
+## **Programación de tareas**
+
+- at
+  - `at now +2 minutes`
+  - `at> echo "hello world" > /home/sony/hola.txt`
+- cron : programar comandos para que se ejecuten de forma periodica, utiliza una tabla de archivos que es crontab
+  - `crontab -e` : permitira editar , ver las tareas programadas y crear nuevas tareas
