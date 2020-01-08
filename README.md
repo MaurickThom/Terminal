@@ -253,6 +253,7 @@ Otra forma de hacerlo
 
 Una variable de entorno es la definición global en la que todos los procesos tiene acceso
 `export THOM = thom`
+
 `echo $THOM`
 
 ## **Recursos**
