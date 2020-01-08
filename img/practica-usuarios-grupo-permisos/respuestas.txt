@@ -1,0 +1,14 @@
+- lectura , escritura, ejecucion
+- no todos los usuarios tienen los mismos permisos, las personas que no pueden acceder a las acciones
+son otros usuarios ajenos que no esten en el grupo de usuarios o los que no son dueños, primero se dividen 
+en el tipo de archivo luego con 3 grupos de tres donde el primero es el dueño el segundo el grupo y el ultimo
+son otros usuarios, cada grupo consta con tres caracteres que significa el tipo de accion que tiene permitido
+rwx = READ WRITE EXECUTION
+- 777 significa que cualquier usuario puede hacer cualquier cosa con el archivo por lo que es un peligro para la seguridad.
+- lo permisos que se deben tener para la edicion es la escritura en la parte de otros si es que no estoy en el grupo.
+- para cambiar los permisos con chmod y para cambiar de propetario sudo chown usuario1:usuario2 con eso se le dice que el dueño actual
+es usuario1 y el grupo será usuario2
+- chmod g-x archivo && chmod g-w archivo && chmod o-x archivo && chmod o-w archivo
+- chmod 722 archivo
+- sudo es poder hacer operaciones como superusuario , es peligroso dependiendo de que acciones se cometen a ciertos procesos
+como por ejemplo matar un demon (kill -9 666) , podria que este proceso sea algo del sistema operativo.

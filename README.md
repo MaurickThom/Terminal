@@ -151,6 +151,10 @@ Para alterar los permisos asociados
 - `chmod` : nos cambia el modo del archivo , es decir cambiar indivialmente los permisos (otros)
   - `chmod o-w nuevo.txt` o : others es decir cualquier otro usuario, - : quitar un permiso , w : y quito el de escritura
   - `chmod +x hello.php` todos pueden ejecutar el archivo
+  - u para referirnos al usuario `chmod u+r archivo` agregando al dueño el permiso de lectura tambien podemos quitarle con `u-r`
+  - g para referirnos al grupo `chmod g+r archivo`
+  - o para referirnos a otros `chmod o+r archivo`
+  - a para referirnos a todos `chmod a+r archivo`
 
 Lo visto anteriormente es la notación textual , acontinuación se usuara el manejo de permisos en notación binaria
 
@@ -164,8 +168,8 @@ Lo visto anteriormente es la notación textual , acontinuación se usuara el man
 
 - `chmod 765 img/`
  - 7 (dueño) 1 1 1 lectura(r),escritura(w),ejecucion(x)
- - 6 (grupos) 1 1 0 lectura(r),escritura(w),nada(-)
- - 5 (otros) 1 0 1 lectura(r),nada(-),ejecucion(x)
+ - 6 (grupos) 1 1 0 lectura(r),escritura(w),ejecucion(no puede)
+ - 5 (otros) 1 0 1 lectura(r),escritura(no puede),ejecucion(x)
 
 ## **Recursos**
 
