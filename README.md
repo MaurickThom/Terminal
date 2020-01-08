@@ -111,6 +111,41 @@ Se puede mandar el proceso al background con `CTRL + Z` (en ubuntu) y para traer
   - kill -9 id : -9 es el tipo de señal que le dice que tiene que acabar de una ves
 - killall : hace lo mismo que el anterior pero en este caso no se le pasa el id sino el nombre del ejecutable
 
+## **Permisos sobre archivos: El sistema de permisos octal**
+
+Unix es un sistema multiusuario, todos los archivos de unix tienen un dueño asociado (persona que creo el archivo),un grupo de usuarios que pueden acceder.
+
+
+`ls -l` en la primera columna se obtendra como un hash con simbolos que tiene un significado
+
+- `-` Archivo regular, permiso negado
+- `d` directorio
+- `b` archivo especial como dispositivo de bloque
+- `c` archivo de caracter especial
+- `l` enlace simbólico
+- `p` tubería nombrada (FIFO)
+- `s` zócalo de dominio (socket)
+
+> Permisos son una matriz  de  : dueño,grupo,otros X lectura,escritura,ejecucion<br>
+> los tres primeros son de dueño , grupo , otros
+
+Valor | Permiso | descripcion
+-- | -- | --
+0 | `---` | sin permisos
+1 | `--x` | Sólo ejecución de archivos o acceso a directorios
+2 | `-w-` | Solo escritura
+3 | `-wx` | Escritura y ejecución de archivos o acceso a directorios
+4 | `r--` | solo lectura
+5 | `r-x` | lectura y ejecución de archivos o acceso a directorios
+6 | `rw-` | lectura y escritura
+7 | `rwx` | lectura , escritura y ejecucion de archivos o acceso a directorios
+
+Para alterar los permisos asociados
+
+- `chmod`
+- `chown`
+- `chgrp`
+
 ## **Recursos**
 
 - [sed](https://likegeeks.com/es/sed-de-linux/)
